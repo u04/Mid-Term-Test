@@ -215,6 +215,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &782870567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6485742444163612002, guid: 63211e44b836615489776d2977dd9452,
+    type: 3}
+  m_PrefabInstance: {fileID: 6485742443663585369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &945893512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1611093553563445788, guid: 887c5bee811983a4cb06f9ea66643b36,
@@ -340,7 +346,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6485742443663585369}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 782870567}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -558,6 +564,16 @@ PrefabInstance:
       propertyPath: highScoreLabel
       value: 
       objectReference: {fileID: 6485742443663585370}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: numberOfClouds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: highScore
+      value: 
+      objectReference: {fileID: 782870567}
     - target: {fileID: 6258031004218500823, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
       propertyPath: m_LocalPosition.x

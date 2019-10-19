@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
 
     public GameObject highScore;
     public GameObject cam;
+    
     Vector3 myVector;
 
     [Header("UI Control")]
@@ -61,6 +62,7 @@ public class GameController : MonoBehaviour
            
         }
     }
+    
 
     public int Score
     {
@@ -68,16 +70,31 @@ public class GameController : MonoBehaviour
         {
             return _score;
         }
-
+        
         set
         {
             _score = value;
 
-            
+            //switch if score is more or equal to 200
+            if (_score >= 500)
+            {
+                
+                DontDestroyOnLoad(highScore); //not active but is there
+                //highScore.SetActive(true); not work
+                SceneManager.LoadScene("Level2");
+                
+
+            }
+            else
+            {
+
+            }
 
             if (highScore.GetComponent<HighScore>().score < _score)
             {
                 highScore.GetComponent<HighScore>().score = _score;
+
+                
             }
             scoreLabel.text = "Score: " + _score.ToString();
         }
@@ -89,6 +106,7 @@ public class GameController : MonoBehaviour
         GameObjectInitialization();
         //if (highScoreLabel.text >= 500)
         SceneConfiguration();
+        
         
     }
 
@@ -143,11 +161,10 @@ public class GameController : MonoBehaviour
                 activeSoundClip = SoundClip.ENGINE;
                 myVector = new Vector3(0.0f, 0.0f, -10.0f);
                 Quaternion rotation = Quaternion.Euler(0, 0, 90);
-
-
-                //cam.transform.rotation = Quaternion.AngleAxis(90, myVector);
+                //highScore.GetComponent<HighScore>().score = 500; //do not work
+                //Score = 200; //doesn'twork
+                
                 cam.transform.SetPositionAndRotation(myVector, rotation);
-
                 break;
         }
 
@@ -180,23 +197,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
-        if (Score >= 200)
-        {
-            myVector = new Vector3(0.0f, 1.0f, 0.0f);
-            SceneManager.LoadScene("Level2");
-            DontDestroyOnLoad(highScore);
-            Debug.Log("I am on Level 2");
-            
-
-
-        }
-        else
-        {
-
-            Debug.Log($"not on level 2 {Score}");
-        }
 
     }
 
