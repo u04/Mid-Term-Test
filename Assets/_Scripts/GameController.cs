@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
     public Text highScoreLabel;
 
     public GameObject highScore;
+    public GameObject cam;
+    Vector3 myVector;
 
     [Header("UI Control")]
     public GameObject startLabel;
@@ -99,6 +101,7 @@ public class GameController : MonoBehaviour
         endLabel = GameObject.Find("EndLabel");
         startButton = GameObject.Find("StartButton");
         restartButton = GameObject.Find("RestartButton");
+        cam = GameObject.Find("Main Camera");
     }
 
     
@@ -138,6 +141,13 @@ public class GameController : MonoBehaviour
                 endLabel.SetActive(false);
                 restartButton.SetActive(false);
                 activeSoundClip = SoundClip.ENGINE;
+                myVector = new Vector3(0.0f, 0.0f, -10.0f);
+                Quaternion rotation = Quaternion.Euler(0, 0, 90);
+
+
+                //cam.transform.rotation = Quaternion.AngleAxis(90, myVector);
+                cam.transform.SetPositionAndRotation(myVector, rotation);
+
                 break;
         }
 
@@ -174,10 +184,13 @@ public class GameController : MonoBehaviour
         
         if (Score >= 200)
         {
+            myVector = new Vector3(0.0f, 1.0f, 0.0f);
             SceneManager.LoadScene("Level2");
             DontDestroyOnLoad(highScore);
             Debug.Log("I am on Level 2");
-            ;
+            
+
+
         }
         else
         {
